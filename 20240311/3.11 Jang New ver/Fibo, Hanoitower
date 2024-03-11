@@ -1,0 +1,44 @@
+
+count=0
+
+def fibo(n) :
+    global count   
+    count+=1
+    if n==0:
+        return 0
+    
+    elif n==1 :
+        return 1
+    
+    else :
+        return fibo(n-2) +fibo(n-1)
+
+print('fibo : %d - count : %d' % (fibo(10), count))
+
+def iFib(n):
+    if (n<2) :
+        return n
+    pp= 0
+    p=1
+    for i in range(2, n+1):
+        current = p+pp
+        pp = p
+        p = current
+        
+    return current
+
+print('iFib : %d' % (iFib(5)))
+# iFib는 다시 돌려보기 이해 안감
+
+
+def hanoiTower(n, fr, tmp, to):
+    if (n==1):
+        print('Disk %d : %s --> %s' % (n,fr,to))
+    else :
+        hanoiTower(n-1, fr, to, tmp)
+        print('Disk %d : %s --> %s' % (n,fr,to))
+        hanoiTower(n-1, tmp, fr, to)
+        
+hanoiTower(5, 'A','B','C')
+#손으로 노트에 다 써보기 하노이는 무조건 손으로 써보자
+
