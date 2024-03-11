@@ -1,0 +1,15 @@
+def iFact(n):
+    result = 1
+    for i in range(n, 0, -1):
+        result = result*i
+        
+    return result
+        
+        
+def rFact(n):
+    if n==1:
+        return 1
+    else:
+        return n * rFact(n-1)
+
+print('rFact : %d, iFact : %d' % (rFact(5), iFact(5)))
