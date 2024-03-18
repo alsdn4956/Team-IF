@@ -1,0 +1,15 @@
+pi = 3.141592
+perimeter = 0
+
+def calc_perimeter(radius):
+    global perimeter  #전역변수 쓰려면 global 설정해주자.
+    print('Pi :', pi)
+    perimeter = 2* pi*radius #대입연산자 왼쪽에 있어서 perimeter 변수가 다르다. 뭔가 새로운 값을 할당하는 거기때문에
+    #이름만 같은 지역변수가 되버린다.
+    
+    
+    
+if __name__=='__main__':
+    calc_perimeter(10)
+    print(perimeter) # global 설정 안하면 0이 나온다.
+    
