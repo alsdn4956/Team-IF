@@ -1,0 +1,74 @@
+capacity = 100 #공간 100칸
+array = [None] * capacity
+size = 0 #요소의 개수
+
+def isEmpty():
+    return size == 0
+
+def isFull():
+    return size == capacity  #size라는 변수값이 capacity면 Full (99)번 인덱스까지 꽉 찼다는 의미
+
+def insert(position, e):
+    global size   #변수 등록해줘야한다?
+    if not isFull() and 0 <= position <= size:    #이해 안되면 꼭 손으로 해봐야한다. 머리로만 돌리지말고 손으로도 해보기
+        #0번부터 시작해서 size까지 들어갈 수 있다. if size==3 : 0,1,2,3??
+        for i in range(size, position, -1):
+            array[i]= array[i-1] #size부터 position까지 -1씩 가는데 array = 뒤로 당겨지는 것을 의미한다.
+            #배열 생성 후 size 부분이 i / i-1은 i 왼쪽에 있다.
+            
+        array[position] = e   #e가 position에 삽입
+        size +=1   # 사이즈는 1씩 증가
+    else:
+        print('Overflow or Invalid Position')
+        
+        
+        
+def delete(position):
+    global size
+    if not isEmpty() and 0<= position < size:
+        e = array[position]
+        for i in range(position, size-1):
+            array[i] = array[i+1]
+            
+        size -=1
+        return e
+    else :
+        print("Underflow or Invalid Position")
+        
+    
+def findItem(e):
+    for i in range(size):
+        if array[i] == e:
+            return i
+    
+    return -1
+    
+        
+def display():
+    for i in range(size):
+        print(array[i], end=' ')
+    print()
+        
+        
+if __name__=='__main__':   #테스트코드
+    insert(0, 'A')
+    insert(1, 'B')
+    insert(1, 'C')
+    display()
+    
+    insert(2, 'D')   #over flow or invalid position
+    insert(3, 'E')
+    display()
+    
+    print(delete(3))
+    display()
+    
+    e = input('Input item to delete : ')
+    idx = findItem(e)
+    if idx != -1:
+        delete(idx)
+        display()    
+    
+    
+    
+    
