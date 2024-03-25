@@ -9,8 +9,8 @@ def isFull():
     return size == capacity  #size라는 변수값이 capacity면 Full (99)번 인덱스까지 꽉 찼다는 의미
 
 def insert(position, e):
-    global size   #변수 등록해줘야한다?
-    if not isFull() and 0 <= position <= size:    #이해 안되면 꼭 손으로 해봐야한다. 머리로만 돌리지말고 손으로도 해보기
+    global size   #전역변수 설정
+    if not isFull() and 0 <= position <= size:    #size, position 둘다 처음에는 0이므로 true
         #0번부터 시작해서 size까지 들어갈 수 있다. if size==3 : 0,1,2,3??
         for i in range(size, position, -1):
             array[i]= array[i-1] #size부터 position까지 -1씩 가는데 array = 뒤로 당겨지는 것을 의미한다.
