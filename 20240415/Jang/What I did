@@ -1,0 +1,45 @@
+What I did
+
+Data base - The relationship of Data model
+Relational algebra - relational calculus
+
+Selection - Projection - Intersection - Cartesian product
+
+The meaning of join
+theta join
+equi join
+natural join
+outer join
+semi join
+-----------------------------------
+Using SQL, Java for the homework
+
+- 밑에는 공부한 코드
+
+package homework01;
+
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Types;
+
+public class database {	 
+	public static void main(String[] args) {
+		String url = "jdbc:oracle:thin:@localhost:1521:xe";
+		String sql = "{call Interest(?)}"; /* ? → 프로시저의 OUT으로 받아올 값 */
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver"); /* JDBC 드라이버를 찾는 과정 */
+			Connection con = DriverManager.getConnection(url,"c##madang","madang"); /* 데이터베이스에 접속 */
+			CallableStatement cstmt = con.prepareCall(sql);
+			/* 데이터베이스에 프로시저를 호출 */
+			cstmt.registerOutParameter(1, Types.NUMERIC);
+			cstmt.execute();
+			int test = cstmt.getInt(1);
+			System.out.println("전체 이익 금액: " + test);
+		// 프로시저에서 OUT 타입으로 myInterest의 값을 받아 변수에 저장
+			cstmt.close(); /* SQL 질의 요청 종료 */
+			con.close(); /* 데이터베이스 접속 종료 */
+		}
+		catch (Exception err) { System.out.println("ERROR: " + err); }
+	}
+}
