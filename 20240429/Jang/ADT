@@ -1,0 +1,45 @@
+class Polynomial:
+    def __init__(self, degree, coef):
+        self.degree = degree
+        self.coef = coef
+        
+    def degree(self):
+        return self.degree        
+    
+    def evaluate(self, scalar):
+        result = 0
+        for i in range(self.degree+1):
+            result += self.coef[i] * (scalar ** i)
+        return result
+    
+    def add(rhs):
+        max_degree = max(self.degree, rhs.degree)
+        result = [0] * (max_degree + 1)
+        for i in range(self.degree + 1):
+            result[i] += self.coef[i]
+        for i in range(rhs.degree + 1):
+            result[i] += rhs.coef[i]
+        return Polynomial(max_degree, result)
+        
+        
+        #do not pass please write code
+        
+
+        pass
+    def subtract(rhs):
+        #현재 다항식과 다항식 rhs를 뺀 결과를 반환
+        pass
+    def multiply(rhs):
+        #현재 다항식과 다항식 rhs를 곱한 결과를 반환
+        pass
+    
+
+
+if __name__=='__main__':
+    a = read_poly()
+    b= read_poly()
+    c= a.add(b)
+    a.display("A(x) = ")
+    b.display("B(x) = ")
+    c.display("C(x) = ")
+    print("C(2) = ", c.evaluate(2))
