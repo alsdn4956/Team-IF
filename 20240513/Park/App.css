@@ -1,0 +1,66 @@
+nav ul {
+  list-style: none;
+  padding: 0;
+  background: #333;
+  color: white;
+  margin: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 10px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+form label, form button {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.fade-enter {
+  opacity: 0;
+}
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+.fade-exit {
+  opacity: 1;
+}
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 500ms ease-out;
+}
+
+/* 페이지 전환을 위한 추가 스타일 */
+.page {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.page-enter {
+  opacity: 0;
+}
+.page-enter-active {
+  opacity: 1;
+  transition: opacity 300ms ease-in;
+}
+.page-exit {
+  opacity: 1;
+}
+.page-exit-active {
+  opacity: 0;
+  transition: opacity 300ms ease-out;
+}
+
+
+.app-container {
+  background: linear-gradient(to bottom, #6b6b6b, #ffffff);
+  min-height: 100vh;
+  padding: 20px;
+}
