@@ -1,0 +1,52 @@
+def printStep(L, idx):
+    print('    Step %d : ' % idx, end=' ')
+    print(L)
+
+
+
+def SelectionSort(L):
+    n = len(L)
+    
+    for i in range(n-1):
+        least = i
+        for j in range(i+1,n):
+            if (L[j] < L[least]):
+                least = j 
+    
+    
+        L[i],L[least] = L[least],L[i]
+        printStep(L, i+1)
+    
+    
+def insertionSort(L):
+    n = len(L)
+    
+    for i in range(1, n):
+        key = L[i]
+        j = i-1
+        while j >= 0 and L[j] > key:
+            L[j+1] = L[j]
+            j -= 1  #한칸씩 움직이는 코드
+            
+        L[j+1] = key
+        printStep(L, i)
+            
+        
+    #
+    #
+    #버블 정렬 bChanged 왜 썻는지 한번 생각해보기. 교수님께서 활용도 높은 코드라 하셨음.
+    
+if __name__== '__main__' :
+    data = [5, 3, 8, 4, 9, 1, 6, 2, 7]
+    L=list(data)
+    print("Before     : ", L)
+    SelectionSort(L)
+    print("Selection   :", L)
+    print()
+    
+    L=list(data)
+    print("Before     : ", L)
+    insertionSort(L)
+    print("Insertion   :", L)
+    print()
+    
