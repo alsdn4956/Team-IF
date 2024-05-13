@@ -1,0 +1,50 @@
+input.input-focused:hover {
+    border-color: #9FDEE6 !important; /* 강제 적용을 통한 우선순위 확보 */
+}
+
+.login-button:hover {
+    filter: brightness(0.8); /* 이미지의 밝기를 80%로 줄임 */
+}
+
+/* 입력 칸 기본 스타일 */
+.input-field {
+    width: 100%;
+    padding: 23px;
+    margin-bottom: 40px;
+    border-radius: 12px;
+    outline: none;
+    border: 1px solid #ccc;
+    background: transparent;
+    color: white;
+    font-size: 18px;
+    transition: border-color 0.3s ease; /* 부드러운 효과를 위한 transition */
+}
+
+/* 입력 칸 호버 스타일 */
+.input-field:hover {
+    border-color: #9FDEE6; /* 호버 시 테두리 색상 변경 */
+}
+
+
+.submit-button:hover {
+    color: #9FDEE6; /* 호버 시 글자 색 변경 */
+}
+
+.submit-button:hover,
+.submit-button:active {
+    opacity: 0.6; /* 투명도를 60%로 설정하여 어두워지게 함 */
+}
+
+.signup-link:active {
+    opacity: 0.6; /* 클릭할 때 투명도 조절로 어두워지게 함 */
+}
+/* LoginSignUpPage.css */
+.link-hover-active {
+    color: #9FDEE6; /* 기본 색상 */
+    text-decoration: none; /* 밑줄 제거 */
+}
+
+.link-hover-active:hover,
+.link-hover-active:active {
+    color: #7CBAC9; /* 마우스 오버 또는 클릭시 색상 변경 */
+}
